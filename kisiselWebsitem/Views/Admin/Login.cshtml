@@ -1,0 +1,68 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Kişisel Admin Panel Girişi</title>
+    <!-- Bootstrap CSS -->
+    <link href="/Content/panel/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/panel/login.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card border-0 shadow rounded-3 my-5">
+                    <div class="login-wrap">
+                        @if (@ViewBag.Uyari != null)
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                @ViewBag.Uyari
+                            </div>
+                        }
+                    </div>
+                    <div class="card-body p-4 p-sm-5">
+                        <h5 class="card-title text-center mb-5 fw-light fs-5">Giriş Paneli</h5>
+                        <form method="post" action="/panel/giris/">
+                            <div class="form-floating mb-3">
+                                <label for="floatingInput">E-posta Adresi</label>
+                                <input type="text" class="form-control" name="Eposta" placeholder="E posta" autofocus>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <label for="floatingPassword">Şifre</label>
+                                <input type="password" class="form-control" name="Sifre" placeholder="Şifreniz" autofocus>
+                            </div>
+
+                            <div class="form-check mb-3">
+                                <a href="/Admin/SifremiUnuttum/" class="text-body card-title">Şifremi Unuttum</a>
+
+                            </div>
+                            <div class="d-grid">
+                                <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">
+                                    Giriş Yap
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <p class="mt-5 mb-3 text-muted">© Akif Kaplan</p>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="~/Content/panel/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/panel/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
