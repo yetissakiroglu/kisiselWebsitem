@@ -5,9 +5,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
-
-
+<h2>İletişim Listesi</h2>
 <table class="table">
     <tr>
         <th>
@@ -59,7 +57,7 @@
                 @Html.DisplayFor(modelItem => item.Instagram)
             </td>
             <td>
-                @Html.ActionLink("Güncelle", "Edit", new { id = item.IletisimId })
+                @Html.ActionLink("Güncelle", "Edit", new { id = item.IletisimId }, new { @class= "btn btn-primary" })
             </td>
         </tr>
     }

@@ -27,5 +27,8 @@ namespace kisiselWebsitem.Models.Model
         public string LogoURL { get; set; }
         [DisplayName("Site Ünvan")]
         public string Unvan { get; set; }
+        [DisplayName("Site Anasayfa Açıklaması")]
+        public string Aciklama { get; set; }
+
     }
 }

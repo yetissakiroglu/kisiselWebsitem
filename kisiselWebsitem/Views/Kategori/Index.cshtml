@@ -8,7 +8,7 @@
 <h2>Kategoriler</h2>
 
 <p>
-    @Html.ActionLink("Yeni Oluştur", "Create")
+    @Html.ActionLink("Yeni Oluştur", "Create",null,new { @class= "btn btn-primary" })
 </p>
 <table class="table">
     <tr>
@@ -31,9 +31,9 @@
                 @Html.DisplayFor(modelItem => item.Aciklama)
             </td>
             <td>
-                @Html.ActionLink("Güncelle", "Edit", new { id = item.KategoriId }) |
-                @Html.ActionLink("Detay", "Details", new { id = item.KategoriId }) |
-                @Html.ActionLink("Sil", "Delete", new { id = item.KategoriId })
+                @Html.ActionLink("Güncelle", "Edit", new { id = item.KategoriId }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Detay", "Details", new { id = item.KategoriId }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.KategoriId }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }

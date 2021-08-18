@@ -47,14 +47,15 @@ namespace kisiselWebsitem.Controllers
 
                     string logoname = LogoURL.FileName + imginfo.Extension;
                     img.Resize(300, 200);
-                    img.Save("~/Uploads/Kimlik/" + logoname);
+                    img.Save("~/Uploads/Ayarlar/" + logoname);
 
-                    k.LogoURL = "/Uploads/Kimlik/" + logoname;
+                    k.LogoURL = "/Uploads/Ayarlar/" + logoname;
                 }
                 k.Title = kimlik.Title;
                 k.Keywords = kimlik.Keywords;
                 k.Description = kimlik.Description;
                 k.Unvan = kimlik.Unvan;
+                k.Aciklama = kimlik.Aciklama;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

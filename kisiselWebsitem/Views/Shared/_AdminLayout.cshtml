@@ -29,8 +29,6 @@
     <script src="~/Content/ckeditor/ckeditor.js"></script>
     @*<link href="~/Content/ckeditor/contents.css" rel="stylesheet" />*@
 
-
-
 </head>
 <body>
 
@@ -47,13 +45,11 @@
                 <li>
                     <a href="/Ayarlar/Index">Ayarlar</a>
                 </li>
-
                 <li>
-                    <a href="/Hakkimizda/Index"> Hakkımızda</a>
+                    <a href="/Menu/Index">Menüler</a>
                 </li>
-
                 <li>
-                    <a href="/Hizmet/Index"> Hizmetlerim</a>
+                    <a href="/HakkimizdaSayfa/Index"> Hakkımızda</a>
                 </li>
 
                 <li>
@@ -73,7 +69,7 @@
             </ul>
 
             <ul class="list-unstyled CTAs">
-                @if (Session["yetki"].ToString() == "Admin")
+                @if (Session["yetki"] == "Admin")
                 {
                     <li>
                         <a href="/Admin/Adminler/" class="download">Adminler</a>

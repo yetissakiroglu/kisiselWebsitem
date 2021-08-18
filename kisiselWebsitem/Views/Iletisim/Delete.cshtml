@@ -5,9 +5,8 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
+<h2>İletişim Bilgisi Sil</h2>
+<h3>İletişim Bilgisini silmek istediğinize emin misiniz?</h3>
 <div>
     <h4>Iletisim</h4>
     <hr />
@@ -75,8 +74,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Delete" class="btn btn-primary" /> |
+            @Html.ActionLink("Geri Dön", "Index", null, new { @class = "btn btn-primary" })
         </div>
     }
 </div>

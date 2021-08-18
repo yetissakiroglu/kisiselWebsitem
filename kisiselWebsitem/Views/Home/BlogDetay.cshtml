@@ -3,9 +3,6 @@
     ViewBag.Title = "BlogDetay";
     Layout = "~/Views/Shared/_SiteLayout.cshtml";
 }
-
-
-
 <section id="inner-headline">
     <div class="container">
         <div class="row">
@@ -22,7 +19,6 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-
                 <article>
                     <div class="post-image">
                         <div class="post-heading">
@@ -30,21 +26,16 @@
                         </div>
                         <div class="bottom-article">
                             <ul class="meta-post">
-
-
                                 <li><i class="icon-folder-open"></i><a href="#"> @Model.Kategori.KategoriAd</a></li>
                                 @*<li><i class="icon-comments"></i><a href="#">4 Comments</a></li>*@
                             </ul>
-
                         </div>
                         <img src="@Model.ResimURL" alt="@Model.Baslik" />
                     </div>
                     <p>
                         @Html.Raw(Model.Icerik)
                     </p>
-
                 </article>
-
                 <div class="row">
                     <div class="col-md-8">
                         <h3>Yorum Yap</h3>
@@ -60,8 +51,6 @@
 
                             </div>
                         </form>
-
-
                     </div>
                 </div>
                 <div class="row">
@@ -73,23 +62,12 @@
                             <p>@item.Icerik</p>
                             <hr />
                         }
-
                     </div>
-                </div>
-
-
-
-
-
+               </div>
             </div>
             <div class="col-lg-4">
                 <aside class="right-sidebar">
-                    <div class="widget">
-                        <form class="form-search">
-                            <input class="form-control" type="text" placeholder="Search..">
-                        </form>
-                    </div>
-
+                <br />
                     <div class="widget">
                         <h5 class="widgetheading">Kategoriler</h5>
                         @{
@@ -104,7 +82,6 @@
                             }
                         </ul>
                     </div>
-
                 </aside>
             </div>
         </div>

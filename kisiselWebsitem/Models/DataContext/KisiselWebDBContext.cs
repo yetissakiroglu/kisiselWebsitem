@@ -22,6 +22,7 @@ namespace kisiselWebsitem.Models.DataContext
         public DbSet<Ayarlar> Ayarlar { get; set; }
         public DbSet<Slider> Slider { get; set; }
         public DbSet<Yorum> Yorum { get; set; }
+        public DbSet<Menu> Menu { get; set; }
 
     }
 }

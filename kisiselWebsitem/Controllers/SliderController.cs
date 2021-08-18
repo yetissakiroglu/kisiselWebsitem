@@ -15,13 +15,13 @@ namespace kisiselWebsitem.Controllers
     {
         private KisiselWebDBContext db = new KisiselWebDBContext();
 
-        // GET: Sliders
+        // GET: Menu
         public ActionResult Index()
         {
             return View(db.Slider.ToList());
         }
 
-        // GET: Sliders/Details/5
+        // GET: Menu/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,15 +36,12 @@ namespace kisiselWebsitem.Controllers
             return View(slider);
         }
 
-        // GET: Sliders/Create
+        // GET: Menu/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Sliders/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "SliderId,Baslik,Aciklama,ResimURL")] Slider slider, HttpPostedFileBase ResimURL)
@@ -70,7 +67,7 @@ namespace kisiselWebsitem.Controllers
             return View(slider);
         }
 
-        // GET: Sliders/Edit/5
+        // GET: Menu/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -84,10 +81,7 @@ namespace kisiselWebsitem.Controllers
             }
             return View(slider);
         }
-
-        // POST: Sliders/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "SliderId,Baslik,Aciklama,ResimURL")] Slider slider, HttpPostedFileBase ResimURL, int id)
@@ -105,7 +99,6 @@ namespace kisiselWebsitem.Controllers
                     FileInfo imginfo = new FileInfo(ResimURL.FileName);
 
                     string sliderimgname = Guid.NewGuid().ToString() + imginfo.Extension;
-                    img.Resize(1024, 360);
                     img.Save("~/Uploads/Slider/" + sliderimgname);
 
                     s.ResimURL = "/Uploads/Slider/" + sliderimgname;
@@ -118,7 +111,7 @@ namespace kisiselWebsitem.Controllers
             return View(slider);
         }
 
-        // GET: Sliders/Delete/5
+        // GET: Menu/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -133,7 +126,7 @@ namespace kisiselWebsitem.Controllers
             return View(slider);
         }
 
-        // POST: Sliders/Delete/5
+        // POST: Menu/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

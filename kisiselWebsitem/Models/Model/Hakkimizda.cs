@@ -15,7 +15,7 @@ namespace kisiselWebsitem.Models.Model
         public int HakkimizdaId { get; set; }
         [DisplayName("Başlık")]
         [Required, StringLength(500, ErrorMessage = "500 Karekter olmalıdır")]
-        public string Başlık { get; set; }
+        public string Baslik { get; set; }
         [DisplayName("Anahtar Kelimeler")]
         [Required, StringLength(250, ErrorMessage = "250 Karekter olmalıdır")]
         public string Keywords { get; set; }
