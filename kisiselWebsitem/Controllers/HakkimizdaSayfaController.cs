@@ -19,7 +19,6 @@ namespace kisiselWebsitem.Controllers
             var h = db.Hakkimizda.ToList();
             return View(h);
         }
-
         public ActionResult Edit(int id)
         {
             var h = db.Hakkimizda.Where(x => x.HakkimizdaId == id).FirstOrDefault();
