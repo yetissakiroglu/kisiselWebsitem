@@ -19,8 +19,19 @@ namespace kisiselWebsitem.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Kimlik = db.Ayarlar.SingleOrDefault();
+            Ayarlar ayarlar = new Ayarlar();
+            ayarlar = db.Ayarlar.SingleOrDefault();
 
+            if (ayarlar == null)
+            {
+                ViewBag.Ayarlar = ayarlar;
+            }
+            else
+            {
+                ViewBag.Ayarlar = db.Ayarlar.SingleOrDefault();
+            }
+
+            ViewBag.Ayarlar = db.Ayarlar.SingleOrDefault();
             ViewBag.Hizmetler = db.Hizmet.ToList().OrderByDescending(x => x.HizmetId);
 
             return View();

@@ -38,7 +38,7 @@ namespace kisiselWebsitem.Controllers
             {
 
                 var login = db.Admin.Where(x => x.Eposta == admin.Eposta).SingleOrDefault();
-                if (login == null)
+                if (login != null)
                 {
                     if (login.Eposta == admin.Eposta && login.Sifre == Crypto.Hash(admin.Sifre, "MD5"))
                     {
