@@ -19,7 +19,6 @@ namespace kisiselWebsitem.Controllers
         {
             return View(db.Kategori.ToList());
         }
-
         // GET: Kategori/Details/5
         public ActionResult Details(int? id)
         {
