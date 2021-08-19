@@ -86,7 +86,7 @@ namespace kisiselWebsitem.Controllers
                 smtp.Port = 587;
                 smtp.Host = "smtp.yandex.ru";
                 smtp.EnableSsl = true;
-                smtp.Credentials = new NetworkCredential("arifkaplan2017@yandex.com", "20016565arif");
+                smtp.Credentials = new NetworkCredential("arifkaplan2017@yandex.com", "1");
                 smtp.Send(mail);
 
 

@@ -55,8 +55,8 @@
                                         </a>
                                         <img src="@item.ResimURL" alt="@Html.Raw(item.Icerik.Substring(0, 250))..." style="height:150px;">
                                     </div>
-                                    <p style=" height: 100px; ">
-                                        @Html.Raw(item.Icerik.Substring(0, 250))...
+                                    <p style="height: 100px;">
+                                        @Html.Raw(HTMLTemizleHelper.HTMLTemizle(item.Icerik).Substring(0, 250))...
                                     </p>
                                 </li>
                             }

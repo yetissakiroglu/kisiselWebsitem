@@ -684,7 +684,7 @@ form#commentform textarea {
 .item-thumbs {
 	position: relative;
 	overflow: hidden;
-	margin-bottom: 30px;
+	margin-bottom: 15px;
 	cursor: pointer;
 }
 
@@ -743,7 +743,9 @@ form#commentform textarea {
 		filter: alpha(opacity=100);
 	}
 
-
+.design {
+	margin-bottom: 20px
+}
 /* --- Portolio filter --- */
 
 ul.portfolio-categ {

@@ -176,6 +176,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\HTMLTemizleHelper.cs" />
     <Compile Include="Helpers\SeoHelper.cs" />
     <Compile Include="Migrations\202108182046001_first.cs" />
     <Compile Include="Migrations\202108182046001_first.designer.cs">
