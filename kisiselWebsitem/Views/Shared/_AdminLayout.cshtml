@@ -17,8 +17,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Kisisel Web Sitesi">
-    <meta name="author" content="Akif Kaplan">
-    <meta name="keyword" content="Akif Kaplan">
+    <meta name="author" content="Arif Kaplan">
+    <meta name="keyword" content="Arif Kaplan">
     <link rel="shortcut icon" href="/Content/img/favicon.png">
     <!-- Bootstrap CSS -->
     <link href="/Content/panel/css/bootstrap.min.css" rel="stylesheet">
@@ -64,12 +64,12 @@
                     <a href="/Slider/Index">Slider</a>
                 </li>
                 <li>
-                    <a href="/Iletisim/Index">İletişim</a>
+                    <a href="/IletisimSayfa/Index">İletişim</a>
                 </li>
             </ul>
 
             <ul class="list-unstyled CTAs">
-                @if (Session["yetki"] == "Admin")
+                @if (Session["yetki"].ToString() == "Admin")
                 {
                     <li>
                         <a href="/Admin/Adminler/" class="download">Adminler</a>

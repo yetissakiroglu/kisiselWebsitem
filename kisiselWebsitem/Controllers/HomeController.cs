@@ -1,9 +1,12 @@
 ﻿using kisiselWebsitem.Models.DataContext;
 using kisiselWebsitem.Models.Model;
+using kisiselWebsitem.Models.ViewModel;
 using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
@@ -34,7 +37,8 @@ namespace kisiselWebsitem.Controllers
             ViewBag.Ayarlar = db.Ayarlar.SingleOrDefault();
             ViewBag.Hizmetler = db.Hizmet.ToList().OrderByDescending(x => x.HizmetId);
             ViewBag.Bloglar = db.Blog.ToList().OrderByDescending(x => x.BlogId);
-            ViewBag.Menu = db.Menu.ToList().OrderBy(x => x.Siralama);
+
+
             return View();
         }
 
@@ -50,7 +54,7 @@ namespace kisiselWebsitem.Controllers
         [Route("Hakkimizda")]
         public ActionResult Hakkimizda()
         {
-
+            ViewBag.Menu = db.Menu.ToList().OrderBy(x => x.Siralama);
             ViewBag.Ayarlar = db.Ayarlar.SingleOrDefault();
             return View(db.Hakkimizda.SingleOrDefault());
         }
@@ -59,6 +63,7 @@ namespace kisiselWebsitem.Controllers
         [Route("iletisim")]
         public ActionResult Iletisim()
         {
+            ViewBag.Menu = db.Menu.ToList().OrderBy(x => x.Siralama);
             ViewBag.Ayarlar = db.Ayarlar.SingleOrDefault();
             return View(db.Iletisim.SingleOrDefault());
         }
@@ -69,12 +74,22 @@ namespace kisiselWebsitem.Controllers
 
             if (adsoyad != null && email != null)
             {
-                WebMail.SmtpServer = "smtp.gmail.com";
-                WebMail.EnableSsl = true;
-                WebMail.UserName = "kurumsalweb01@gmail.com";
-                WebMail.Password = "Kurumsal36987";
-                WebMail.SmtpPort = 587;
-                WebMail.Send("kurumsalweb01@gmail.com", konu, email + "-" + mesaj);
+         
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress("arifkaplan2017@yandex.com");
+                mail.To.Add("arifkaplan2017@yandex.com");
+                mail.Subject = konu;
+                mail.Body = mesaj;
+                mail.BodyEncoding = System.Text.Encoding.GetEncoding(1254);
+                mail.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Port = 587;
+                smtp.Host = "smtp.yandex.ru";
+                smtp.EnableSsl = true;
+                smtp.Credentials = new NetworkCredential("arifkaplan2017@yandex.com", "20016565arif");
+                smtp.Send(mail);
+
+
                 ViewBag.Uyari = "Mesajınız başarı ile gönderilmiştir.";
                 Response.Redirect("/iletisim");
 
@@ -130,7 +145,22 @@ namespace kisiselWebsitem.Controllers
 
             return PartialView(db.Blog.ToList().OrderByDescending(x => x.BlogId));
         }
+        public ActionResult MenuPartial()
+        {
+            ViewBag.Ayarlar = db.Ayarlar.SingleOrDefault();
 
+            ViewBag.Hizmetler = db.Hizmet.ToList().OrderByDescending(x => x.HizmetId);
+
+            ViewBag.Iletisim = db.Iletisim.SingleOrDefault();
+
+            ViewBag.Blog = db.Blog.ToList().OrderByDescending(x => x.BlogId);
+
+            HomeViewModel homeView = new HomeViewModel();
+            homeView.Menuler = db.Menu.ToList().OrderBy(x => x.Siralama).ToList();
+
+
+            return PartialView(homeView);
+        }
         public ActionResult FooterPartial()
         {
             ViewBag.Ayarlar = db.Ayarlar.SingleOrDefault();
@@ -140,9 +170,12 @@ namespace kisiselWebsitem.Controllers
             ViewBag.Iletisim = db.Iletisim.SingleOrDefault();
 
             ViewBag.Blog = db.Blog.ToList().OrderByDescending(x => x.BlogId);
-            ViewBag.Menu = db.Menu.ToList().OrderBy(x => x.Siralama);
 
-            return PartialView();
+            HomeViewModel homeView = new HomeViewModel();
+            homeView.Menuler = db.Menu.ToList().OrderBy(x => x.Siralama).ToList();
+
+
+            return PartialView(homeView);
         }
 
 

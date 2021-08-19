@@ -1,4 +1,6 @@
-﻿<footer>
+﻿@model kisiselWebsitem.Models.ViewModel.HomeViewModel
+
+<footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
@@ -18,8 +20,7 @@
                 <div class="widget">
                     <h5 class="widgetheading">Menü</h5>
                     <ul class="link-list">
-
-                        @foreach (var item in ViewBag.Menu)
+                        @foreach (var item in Model.Menuler)
                         {
                             <li><a href="/@item.Url">@item.MenuAdi</a></li>
                         }
@@ -44,7 +45,7 @@
                         @foreach (var item in ViewBag.Hizmetler)
                         {
                             <img src="@item.ResimURL" width="75" height="30" />
-                            }
+                        }
                     </div>
                     <div class="clear">
                     </div>
@@ -59,7 +60,7 @@
                     <div class="copyright">
                         <p>@DateTime.Now.Year  &copy; Tüm Hakları Gizlidir</p>
                         <div class="credits">
-                                Designed by <a href="#">Akif Kaplan</a>
+                            Designed by <a href="#">Arif Kaplan</a>
                         </div>
                     </div>
                 </div>

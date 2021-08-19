@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace kisiselWebsitem.Controllers
 {
-    public class IletisimController : Controller
+    public class IletisimSayfaController : Controller
     {
         private KisiselWebDBContext db = new KisiselWebDBContext();
 
